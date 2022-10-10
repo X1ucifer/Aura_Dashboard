@@ -165,7 +165,7 @@ const Overview = () => {
           <StatCard
             type="fill"
             title="Campaigns"
-            value={103}
+            value={130}
             icon={<Bookmark size={20} strokeWidth={1} />}
             color={theme.primaryColor}
             clickHandler={() => Message.info('Campaign stat button clicked')}
