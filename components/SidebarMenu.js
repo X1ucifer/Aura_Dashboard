@@ -119,42 +119,42 @@ const SidebarContent = ({
               </Menu.Item>
             );
 
-          // if (hasChildren)
-          //   return (
-          //     <SubMenu
-          //       key={getKey(route.name, index)}
-          //       title={
-          //         <span>
-          //           {sidebarIcons && (
-          //             <span className="anticon">{route.icon}</span>
-          //           )}
-          //           <span>{capitalize(route.name)}</span>
-          //           {route.badge && badgeTemplate(route.badge)}
-          //         </span>
-          //       }
-          //     >
-          //       {route.children.map((subitem, index) => (
-          //         <Menu.Item
-          //           key={getKey(subitem.name, index)}
-          //           className={
-          //             pathname === subitem.path ? 'ant-menu-item-selected' : ''
-          //           }
-          //           onClick={() => {
-          //             if (state.mobile) dispatch({ type: 'mobileDrawer' });
-          //           }}
-          //         >
-          //           <Link href={`${subitem.path ? subitem.path : ''}`} prefetch>
-          //             <a>
-          //               <span className="mr-auto">
-          //                 {capitalize(subitem.name)}
-          //               </span>
-          //               {subitem.badge && badgeTemplate(subitem.badge)}
-          //             </a>
-          //           </Link>
-          //         </Menu.Item>
-          //       ))}
-          //     </SubMenu>
-          //   );
+          if (hasChildren)
+            return (
+              <SubMenu
+                key={getKey(route.name, index)}
+                title={
+                  <span>
+                    {sidebarIcons && (
+                      <span className="anticon">{route.icon}</span>
+                    )}
+                    <span>{capitalize(route.name)}</span>
+                    {route.badge && badgeTemplate(route.badge)}
+                  </span>
+                }
+              >
+                {route.children.map((subitem, index) => (
+                  <Menu.Item
+                    key={getKey(subitem.name, index)}
+                    className={
+                      pathname === subitem.path ? 'ant-menu-item-selected' : ''
+                    }
+                    onClick={() => {
+                      if (state.mobile) dispatch({ type: 'mobileDrawer' });
+                    }}
+                  >
+                    <Link href={`${subitem.path ? subitem.path : ''}`} prefetch>
+                      <a>
+                        <span className="mr-auto">
+                          {capitalize(subitem.name)}
+                        </span>
+                        {subitem.badge && badgeTemplate(subitem.badge)}
+                      </a>
+                    </Link>
+                  </Menu.Item>
+                ))}
+              </SubMenu>
+            );
         })}
       </Menu>
 
@@ -164,7 +164,7 @@ const SidebarContent = ({
           display: `${sidebarTheme === 'dark' ? 'none' : ''}`
         }}
       />
-      {/* <div className={`py-3 px-4 bg-${sidebarTheme}`}>
+   <div className={`py-3 px-4 bg-${sidebarTheme}`}>
         <Row type="flex" align="middle" justify="space-around">
           <Dropdown overlay={UserMenu}>
             <span>
@@ -217,7 +217,7 @@ const SidebarContent = ({
             </>
           )}
         </Row>
-      </div> */}
+      </div> 
     </>
   );
 
