@@ -43,6 +43,7 @@ import StatCard from './shared/StatCard';
 import WeatherCard from './shared/WeatherCard';
 import styled from 'styled-components';
 import { theme } from './styles/GlobalStyles';
+import dashboard from '../lib/dashboard';
 
 const { MonthPicker } = DatePicker;
 
@@ -159,18 +160,37 @@ const TimelinePeriod = ({ content }) => (
 
 const Overview = () => {
   return (
+
+
     <div>
+
       <Row gutter={16}>
-        <Col xs={24} sm={12} md={6}>
+        
+       {dashboard && dashboard.map((item, i) => (
+    
+            <Col xs={24} sm={12} md={6}>
           <StatCard
             type="fill"
-            title="Campaigns"
-            value={130}
+            title={item.title}
+            value={item.noofcounts}
             icon={<Bookmark size={20} strokeWidth={1} />}
             color={theme.primaryColor}
             clickHandler={() => Message.info('Campaign stat button clicked')}
           />
         </Col>
+      
+      ))} 
+
+       {/* <Col xs={24} sm={12} md={6}>
+          <StatCard
+            type="fill"
+            title="No of Orders"
+            value={130}
+            icon={<Bookmark size={20} strokeWidth={1} />}
+            color={theme.primaryColor}
+            clickHandler={() => Message.info('Campaign stat button clicked')}
+          />
+        </Col> 
         <Col xs={24} sm={12} md={6}>
           <StatCard
             type="fill"
@@ -200,7 +220,7 @@ const Overview = () => {
             color={theme.errorColor}
             clickHandler={() => Message.info('Opens stat button clicked')}
           />
-        </Col>
+        </Col> */}
       </Row>
 
       <Card
