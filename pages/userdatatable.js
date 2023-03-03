@@ -4,9 +4,9 @@ import Usertable from "../lib/userdata"
 const userdatatable = () => {
 
 
-    return(
+    return (
         <>
-        <Tables/>
+            <Tables user={Usertable} />
         </>
     )
 }
