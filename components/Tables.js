@@ -34,7 +34,7 @@ const Tables = ({user}) => {
           <Button type="link" onClick={() => handleEdit(record)}>Edit</Button>
           <Button type="link" onClick={() => handleDelete(record)}>Delete</Button>
           <Button type="link" onClick={() => handleView(record)}>View</Button>
-        </>
+        </> 
       ),
     },
   ];
