@@ -174,7 +174,7 @@ const Overview = () => {
             title={item.title}
             value={item.noofcounts}
             icon={<Bookmark size={20} strokeWidth={1} />}
-            color={theme.primaryColor}
+            color={theme.gradientColor}
             clickHandler={() => Message.info('Campaign stat button clicked')}
           />
         </Col>
