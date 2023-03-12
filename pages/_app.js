@@ -1,5 +1,6 @@
 import '../assets/styles.less';
-
+import { Provider } from "react-redux";
+import { store } from "../store";
 import App, { Container } from 'next/app';
 
 import AppProvider from '../components/shared/AppProvider';
@@ -8,6 +9,7 @@ import Head from 'next/head';
 import NProgress from 'nprogress';
 import Page from '../components/Page';
 import Router from 'next/router';
+import SigninPage from '../components/Signin';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -34,8 +36,14 @@ class MyApp extends App {
     return { pageProps };
   }
 
+
   render() {
     const { Component, pageProps } = this.props;
+
+
+  const user = [
+    "name" 
+  ]
 
     return (
       <Container>
@@ -57,11 +65,17 @@ class MyApp extends App {
             <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" />
           )}
         </Head>
+        
+        <Provider store={store}>
         <AppProvider>
-          <Page>
+
+          {!user ? <SigninPage/> :    <Page>
             <Component {...pageProps} />
           </Page>
+          }
+        
         </AppProvider>
+        </Provider>
       </Container>
     );
   }
